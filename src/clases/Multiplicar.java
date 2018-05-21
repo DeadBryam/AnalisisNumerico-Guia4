@@ -6,6 +6,7 @@
 package clases;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -130,8 +131,9 @@ public class Multiplicar {
             } else {
                 funcionStrong += "+" + string;
             }
+            System.out.println(string);
         }
-        funcionStrong = funcionStrong.replaceAll("^.", "").replaceAll("[+]", " + ").replaceAll("[-]", " - ");
+        funcionStrong = funcionStrong.replaceAll("[+]", " + ").replaceAll("[-]", " - ");
         return funcionStrong;
     }
 

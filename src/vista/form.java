@@ -10,6 +10,7 @@ import clases.Evaluar;
 import clases.Hermite;
 import clases.Lagrange;
 import clases.Multiplicar;
+import clases.Newton;
 import java.util.Arrays;
 
 /**
@@ -19,13 +20,14 @@ import java.util.Arrays;
 public class form extends javax.swing.JFrame {
 
     Evaluar ev = new Evaluar();
-
+    Newton ne = new Newton();
     /**
      * Creates new form form
      */
     public form() {
         initComponents();
         llenarTbl();
+        System.out.println(ne.getNewton(new double[]{2.0,3.0,5.0,7.0}, new double[]{5.0,4.0,6.0,8.0}));
     }
 
     /**

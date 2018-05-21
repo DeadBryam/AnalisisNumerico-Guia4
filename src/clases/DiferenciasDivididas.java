@@ -19,7 +19,7 @@ public class DiferenciasDivididas {
      *
      * @param x Espera un arreglo de double donde esten las "x".
      * @param y Espera un arreglo de double donde esten las "y".
-     * @return El polonomio de diferencias divididas.
+     * @return El polinomio de diferencias divididas.
      */
     public String getDiferenciasDivididas(double x[], double y[]) {
         return new Evaluar().armarPolinomio(x, y);

@@ -5,6 +5,7 @@
  */
 package clases;
 
+import java.util.List;
 import org.lsmp.djep.djep.DJep;
 import org.nfunk.jep.JEP;
 import org.nfunk.jep.Node;
@@ -231,33 +232,33 @@ public class Evaluar {
      * @return El polonomio calculado.
      */
     public String armarPolinomio(double[] x, double[] y, double[] fx) {
-            final String base = "(x-#)";
-            String polinomio = "", polis[], piv;
-            double[] bn = calcularB(x, y, fx);
+        final String base = "(x-#)";
+        String polinomio = "", polis[], piv;
+        double[] bn = calcularB(x, y, fx);
 
-            for (int i = 0; i < x.length; i++) {
-                if (bn[i] < 0) {
-                    polinomio += " " + bn[i];
-                } else {
-                    polinomio += " +" + bn[i];
-                }
+        for (int i = 0; i < x.length; i++) {
+            if (bn[i] < 0) {
+                polinomio += " " + bn[i];
+            } else {
+                polinomio += " +" + bn[i];
+            }
 
-                for (int j = 0; j < i; j++) {
-                    if (bn[i] != 0) {
-                        polinomio += base.replace("#", String.valueOf(x[j])).replace("--", "+");
-                    }
+            for (int j = 0; j < i; j++) {
+                if (bn[i] != 0) {
+                    polinomio += base.replace("#", String.valueOf(x[j])).replace("--", "+");
                 }
             }
-            polis = polinomio.replaceAll("^ [+]", "").split(" ");
-
-            try {
-                piv = new Multiplicar().reducirToString(polis);
-            } catch (Exception e) {
-                System.out.println(e);
-                return polinomio;
-            }
-            return piv;
         }
+        polis = polinomio.replaceAll("^ [+]", "").split(" ");
+
+        try {
+            piv = new Multiplicar().reducirToString(polis);
+        } catch (Exception e) {
+            System.out.println(e);
+            return polinomio;
+        }
+        return piv;
+    }
 
     /**
      * Este metodo sirve para armar un polinomio a partir de pares ordenamos
@@ -281,6 +282,27 @@ public class Evaluar {
 
             for (int j = 0; j < i; j++) {
                 if (bn[i] != 0) {
+                    polinomio += base.replace("#", String.valueOf(x[j])).replace("--", "+");
+                }
+            }
+        }
+        polis = polinomio.replaceAll("^ [+]", "").split(" ");
+        return new Multiplicar().reducirToString(polis);
+    }
+
+    public String armarPolinomioFormulaNewton(double[] x, double[] y, List<Double> b) {
+        final String base = "(x-#)";
+        String polinomio = "", polis[];
+        List<Double> bn = b;
+        for (int i = 0; i < x.length; i++) {
+            if (bn.get(i) < 0) {
+                polinomio += " " + bn.get(i);
+            } else {
+                polinomio += " +" + bn.get(i);
+            }
+
+            for (int j = 0; j < i; j++) {
+                if (bn.get(i) != 0) {
                     polinomio += base.replace("#", String.valueOf(x[j])).replace("--", "+");
                 }
             }
