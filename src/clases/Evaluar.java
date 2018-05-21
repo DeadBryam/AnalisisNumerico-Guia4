@@ -244,14 +244,13 @@ public class Evaluar {
                 }
             }
         }
-        polis = polinomio.replaceAll("^ [+]", "").replaceAll("[-][-]", "+").replaceAll("[+][-]", "-").replaceAll("[-][+]", "-").replaceAll("[+][+]", "+").split(" ");
-        
+        polis = polinomio.replaceAll("^ [+]", "").replaceAll("[-][-]", "+").replaceAll("[+][-]", "-").replaceAll("[-][+]", "-").replaceAll("[+][+]", "+").trim().split(" ");
+        System.out.println(Arrays.toString(polis));
         try {
             piv = new Multiplicar().reducirToString(polis);
         } catch (Exception e) {
             System.out.println(e);
         }
-        
         return piv;
     }
 

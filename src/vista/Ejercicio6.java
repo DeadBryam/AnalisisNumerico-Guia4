@@ -5,6 +5,13 @@
  */
 package vista;
 
+import clases.Evaluar;
+import clases.Hermite;
+import clases.Lagrange;
+import clases.Multiplicar;
+import clases.Newton;
+import java.util.Arrays;
+
 /**
  *
  * @author bryan
@@ -16,6 +23,8 @@ public class Ejercicio6 extends javax.swing.JFrame {
      */
     public Ejercicio6() {
         initComponents();
+        init();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -32,7 +41,7 @@ public class Ejercicio6 extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 0));
 
@@ -82,6 +91,26 @@ public class Ejercicio6 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     public void init() {
+        String funcion = "(x^2)(cos(5x+2))", res = "", pol1;
+        double x[] = new double[]{0,1}, y[] = new double[]{-2,0}, z[] = new double[]{6,-8},xe[]=new double[x.length*2],ye[]=new double[x.length*2];
+
+        for (int i = 1; i <= x.length; i++) {
+            xe[(i-1)*2] = x[i-1];
+            xe[(i*2)-1] = x[i-1];
+            ye[(i-1)*2] = y[i-1];
+            ye[(i*2)-1] = y[i-1];
+        }
+        
+        pol1 = new Hermite().getHermite(xe, ye, z);
+        
+        res+="Hermite:\n"+pol1;
+        res += "\n\nEvaluados:" + "\n\nHermite:\n" + new Evaluar().evaluarFuncion(Math.PI / 6, pol1);
+        res += "\n\nErrores:\n" + "\nHermite:\n" + new Evaluar().getErrorInterpolacion(x, y, Math.PI / 6, pol1);
+        
+        jTextArea1.setText(res);
+    }
+     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
         new Main().show();
