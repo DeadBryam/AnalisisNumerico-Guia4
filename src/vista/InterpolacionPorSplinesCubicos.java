@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package clases;
+package vista;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -133,11 +133,11 @@ public class InterpolacionPorSplinesCubicos extends javax.swing.JFrame {
             }
         });
         jPanel4.add(cmbPuntos);
-        cmbPuntos.setBounds(130, 20, 320, 20);
+        cmbPuntos.setBounds(130, 20, 320, 24);
 
         jLabel1.setText("Grado:");
         jPanel4.add(jLabel1);
-        jLabel1.setBounds(60, 60, 33, 14);
+        jLabel1.setBounds(60, 60, 48, 15);
 
         cmbGrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el grado", "Grado 1", "Grado 2", "Grado 3" }));
         cmbGrado.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +146,7 @@ public class InterpolacionPorSplinesCubicos extends javax.swing.JFrame {
             }
         });
         jPanel4.add(cmbGrado);
-        cmbGrado.setBounds(130, 60, 130, 20);
+        cmbGrado.setBounds(130, 60, 130, 24);
 
         jPanel2.add(jPanel4);
         jPanel4.setBounds(10, 10, 580, 470);
@@ -423,7 +423,7 @@ public class InterpolacionPorSplinesCubicos extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
