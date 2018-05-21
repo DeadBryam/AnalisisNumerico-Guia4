@@ -27,7 +27,7 @@ public class Multiplicar {
      * @return Retorna la reduccion de los metodos.
      */
     public String[] multPolinomios(int tamanio, String polinomios) {
-        String[] polSeparados = polinomios.replaceAll("^[+]\\d+.\\d+", "").replaceAll("^-\\d+.\\d+", "").replaceAll("^\\d+.\\d+", "").replaceAll("^[(]", "").replaceAll("[)]$", "").split("[)][(]");
+        String[] polSeparados = polinomios.replaceAll("^[+//-]\\d+.\\d+[E][+//-]\\d+", "").replaceAll("^[+//-]\\d+.\\d+", "").replaceAll("^\\d+.\\d+", "").replaceAll("^[(]", "").replaceAll("[)]$", "").split("[)][(]");
         String[] separados, resul;
         List<String[]> modificados = new ArrayList<>();
         List<String> polRes;
@@ -107,7 +107,6 @@ public class Multiplicar {
                 if (t >= 0) {
                     reducido[lns.length - (i + 1)] += Double.parseDouble(redux.get(j)[t].replaceAll("[x][x^]\\d+", "").replaceAll("x", ""));
                 }
-
             }
         }
 
@@ -131,9 +130,7 @@ public class Multiplicar {
             } else {
                 funcionStrong += "+" + string;
             }
-            System.out.println(string);
         }
-        funcionStrong = funcionStrong.replaceAll("[+]", " + ").replaceAll("[-]", " - ");
         return funcionStrong;
     }
 

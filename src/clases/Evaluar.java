@@ -5,6 +5,7 @@
  */
 package clases;
 
+import java.util.Arrays;
 import java.util.List;
 import org.lsmp.djep.djep.DJep;
 import org.nfunk.jep.JEP;
@@ -85,18 +86,12 @@ public class Evaluar {
     public double getErrorInterpolacion(double[] x, double[] y, double valor, String funcion) {
         Evaluar ev = new Evaluar();
         double res;
-        String base = "(c-x)", error = "(fx)", rs[];
+        String base = "(c-x)", error = "(fx)";
 
         for (int i = 0; i < x.length; i++) {
             error += (base.replace("c", String.valueOf(valor)).replace("x", String.valueOf(x[i])));
         }
-        try {
-            res = ev.evaluarFuncion(Double.parseDouble(funcion.replaceAll("[x].*", "")), error.replaceAll("fx", "x"));
-        } catch (NumberFormatException e) {
-            rs = funcion.split(" ");
-            double r = Double.parseDouble(rs[rs.length - 1].replaceAll("[(].*[)]", ""));
-            res = ev.evaluarFuncion(r, error.replaceAll("fx", "x"));
-        }
+            res = ev.evaluarFuncion(Double.parseDouble(funcion.replaceAll("[x].*", "").replaceAll(" ", "")), error.replaceAll("fx", "x"));
         return res;
     }
 
@@ -233,7 +228,7 @@ public class Evaluar {
      */
     public String armarPolinomio(double[] x, double[] y, double[] fx) {
         final String base = "(x-#)";
-        String polinomio = "", polis[], piv;
+        String polinomio = "", polis[], piv = null;
         double[] bn = calcularB(x, y, fx);
 
         for (int i = 0; i < x.length; i++) {
@@ -255,8 +250,8 @@ public class Evaluar {
             piv = new Multiplicar().reducirToString(polis);
         } catch (Exception e) {
             System.out.println(e);
-            return polinomio;
         }
+        
         return piv;
     }
 
