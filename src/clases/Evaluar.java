@@ -240,12 +240,12 @@ public class Evaluar {
 
             for (int j = 0; j < i; j++) {
                 if (bn[i] != 0) {
-                    polinomio += base.replace("#", String.valueOf(x[j])).replace("--", "+");
+                    polinomio += base.replace("#", String.valueOf(x[j])).replaceAll("[-][-]", "+").replaceAll("[+][-]", "-").replaceAll("[-][+]", "-").replaceAll("[+][+]", "+");
                 }
             }
         }
-        polis = polinomio.replaceAll("^ [+]", "").split(" ");
-
+        polis = polinomio.replaceAll("^ [+]", "").replaceAll("[-][-]", "+").replaceAll("[+][-]", "-").replaceAll("[-][+]", "-").replaceAll("[+][+]", "+").split(" ");
+        
         try {
             piv = new Multiplicar().reducirToString(polis);
         } catch (Exception e) {

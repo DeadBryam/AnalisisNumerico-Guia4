@@ -6,6 +6,7 @@
 package clases;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -56,11 +57,12 @@ public class Lagrange {
                 String[] pol = num.replace("--", "+").replaceAll("[+]", " +").replaceAll("[-]", " -").trim().split(" ");
                 suma *= (Double.parseDouble(pol[0]) + Double.parseDouble(pol[1]));
             }
+            
             fx = Double.parseDouble(funcion.replaceAll("[(].*[)]", ""));
 
             if (fx != 0) {
                 // System.out.println(String.valueOf(new evaluar().Evaluar(fx, "x/"+funcion.split("/")[1].replaceAll("--", "+")))+ funcion.split("/")[0].replaceAll("^\\d+.\\d+", ""));;
-                return fx / suma + funcion.split("/")[0].replaceAll("^\\d+.\\d+", "");
+                return (fx / suma) + funcion.split("/")[0].replaceAll("^\\d+.\\d+", "").replaceAll("^-\\d+.\\d+", "");
             }
             return null;
         }

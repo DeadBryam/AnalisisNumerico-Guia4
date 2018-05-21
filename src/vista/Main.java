@@ -53,8 +53,13 @@ public class Main extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
-        jButton2.setText("jButton1");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 205, -1, -1));
+        jButton2.setText("Ejercicio 3");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         jButton3.setText("Ejercicio 2");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -62,10 +67,15 @@ public class Main extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, -1));
 
-        jButton4.setText("jButton1");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 260, -1, -1));
+        jButton4.setText("Ejercicio 4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
 
         jButton5.setText("Ejercicio 5 y 7");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +105,16 @@ public class Main extends javax.swing.JFrame {
         this.dispose();
         ej2.show();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+        new Ejercicio3().show();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.dispose();
+        new Ejercicio4().show();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
