@@ -47,6 +47,7 @@ public class form extends javax.swing.JFrame {
         btnHermite = new javax.swing.JButton();
         btnDiferencias = new javax.swing.JButton();
         btnTrazadores = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         pnlResultado = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblRes = new javax.swing.JTable();
@@ -116,6 +117,13 @@ public class form extends javax.swing.JFrame {
 
         btnTrazadores.setText("Trazadores cubicos");
 
+        jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
         pnlBotonesLayout.setHorizontalGroup(
@@ -123,30 +131,33 @@ public class form extends javax.swing.JFrame {
             .addGroup(pnlBotonesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlBotonesLayout.createSequentialGroup()
-                            .addComponent(btnLagranja)
-                            .addGap(65, 65, 65)
-                            .addComponent(btnHermite)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnNewton)))
+                    .addGroup(pnlBotonesLayout.createSequentialGroup()
+                        .addComponent(btnLagranja)
+                        .addGap(65, 65, 65)
+                        .addComponent(btnHermite)
+                        .addGap(65, 65, 65)
+                        .addComponent(btnNewton))
                     .addGroup(pnlBotonesLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(btnDiferencias)
                         .addGap(30, 30, 30)
                         .addComponent(btnTrazadores)))
                 .addContainerGap(27, Short.MAX_VALUE))
+            .addComponent(jLabel1)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(pnlBotonesLayout.createSequentialGroup()
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBotonesLayout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLagranja, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHermite, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,7 +166,7 @@ public class form extends javax.swing.JFrame {
                 .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDiferencias, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnTrazadores, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 310));
@@ -335,6 +346,11 @@ public class form extends javax.swing.JFrame {
         txtPolinomio.setText(polinomio);
     }//GEN-LAST:event_btnNewtonActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+        new Main().show();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -377,6 +393,7 @@ public class form extends javax.swing.JFrame {
     private javax.swing.JButton btnNewton;
     private javax.swing.JButton btnTrazadores;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -56,7 +56,12 @@ public class Main extends javax.swing.JFrame {
         jButton2.setText("jButton1");
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 205, -1, -1));
 
-        jButton3.setText("jButton1");
+        jButton3.setText("Ejercicio 2");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, -1, -1));
 
         jButton4.setText("jButton1");
@@ -80,10 +85,16 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         InterpolacionPorSplinesCubicos f = new InterpolacionPorSplinesCubicos();
+        InterpolacionPorSplinesCubicos f = new InterpolacionPorSplinesCubicos();
         this.dispose();
         f.show();
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Ejercicio2 ej2 = new Ejercicio2();
+        this.dispose();
+        ej2.show();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
