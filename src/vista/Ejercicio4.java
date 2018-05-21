@@ -52,6 +52,7 @@ public class Ejercicio4 extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -97,7 +98,7 @@ public class Ejercicio4 extends javax.swing.JFrame {
             y[i] = new Evaluar().evaluarFuncion(x[i], funcion);
         }
         z = new Evaluar().getArrayDerivada(x, funcion);
-        
+
         for (int i = 1; i <= x.length; i++) {
             xe[(i - 1) * 2] = x[i - 1];
             xe[(i * 2) - 1] = x[i - 1];
@@ -110,7 +111,8 @@ public class Ejercicio4 extends javax.swing.JFrame {
         pol3 = new Hermite().getHermite(xe, ye, z);
 
         res += "Lagrange:\n" + pol1 + "\n\nNewton:\n" + pol2 + "\n\nHermite:\n" + pol3;
-        res += "\n\nEvaluados:\n\n"+ "Lagrange:\n" + new Evaluar().evaluarFuncion(Math.PI/6, pol1) + "\n\nNewton:\n" + new Evaluar().evaluarFuncion(Math.PI/6, pol2) + "\n\nHermite:\n" + new Evaluar().evaluarFuncion(Math.PI/6, pol3);
+        res += "\n\nEvaluados:\n" + "Lagrange:\n" + new Evaluar().evaluarFuncion(Math.PI / 6, pol1) + "\n\nNewton:\n" + new Evaluar().evaluarFuncion(Math.PI / 6, pol2) + "\n\nHermite:\n" + new Evaluar().evaluarFuncion(Math.PI / 6, pol3);
+        res += "\n\nErrores:\n" + "Lagrange:\n" + new Evaluar().getErrorLagrange(x, y, Math.PI / 6) + "\n\nNewton:\n" + new Evaluar().getErrorInterpolacion(x, y, Math.PI / 6, pol2) + "\n\nHermite:\n" + new Evaluar().getErrorInterpolacion(x, y, Math.PI / 6, pol3);
         jTextArea1.setText(res);
     }
 

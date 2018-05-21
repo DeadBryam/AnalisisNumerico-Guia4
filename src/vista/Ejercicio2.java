@@ -48,6 +48,7 @@ public class Ejercicio2 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 0));
         jPanel1.setForeground(new java.awt.Color(255, 255, 0));
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);

@@ -5,27 +5,17 @@
  */
 package vista;
 
-import clases.Evaluar;
-import clases.Hermite;
-import clases.Lagrange;
-import clases.Multiplicar;
-import clases.Newton;
-import java.util.Arrays;
-import org.lsmp.djep.xjep.Eval;
-
 /**
  *
  * @author bryan
  */
-public class Ejercicio3 extends javax.swing.JFrame {
+public class Ejercicio6 extends javax.swing.JFrame {
 
     /**
-     * Creates new form Ejercicio3
+     * Creates new form Ejercicio6
      */
-    public Ejercicio3() {
+    public Ejercicio6() {
         initComponents();
-        init();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -42,16 +32,15 @@ public class Ejercicio3 extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 0));
 
-        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setText("Salir");
+        jButton1.setText("Regrear");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -62,19 +51,19 @@ public class Ejercicio3 extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(372, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -85,7 +74,9 @@ public class Ejercicio3 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 3, Short.MAX_VALUE))
         );
 
         pack();
@@ -95,30 +86,6 @@ public class Ejercicio3 extends javax.swing.JFrame {
         this.dispose();
         new Main().show();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    public void init() {
-        String funcion = "(x^2)(cos(5x+2))", res = "", pol1, pol2, pol3;
-        double x[] = new double[]{0, Math.PI / 3, Math.PI / 2}, y[] = new double[x.length], z[],xe[]=new double[x.length*2],ye[]=new double[x.length*2];
-
-        for (int i = 0; i < x.length; i++) {
-            y[i] = new Evaluar().evaluarFuncion(x[i], funcion);
-        }
-        z = new Evaluar().getArrayDerivada(x, funcion);
-
-        for (int i = 1; i <= x.length; i++) {
-              xe[(i-1)*2] = x[i-1];
-            xe[(i*2)-1] = x[i-1];
-            ye[(i-1)*2] = y[i-1];
-            ye[(i*2)-1] = y[i-1];
-        }
-        
-        pol1 = new Multiplicar().reducirToString(new Lagrange().getLn(x, y));
-        pol2 = new Newton().getNewton(x, y);
-        pol3 = new Hermite().getHermite(xe, ye, z);
-        
-        res+="Lagrange:\n"+pol1+"\n\nNewton:\n"+pol2+"\n\nHermite:\n"+pol3;
-        jTextArea1.setText(res);
-    }
 
     /**
      * @param args the command line arguments
@@ -137,20 +104,20 @@ public class Ejercicio3 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ejercicio6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ejercicio6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ejercicio6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ejercicio6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ejercicio3().setVisible(true);
+                new Ejercicio6().setVisible(true);
             }
         });
     }
