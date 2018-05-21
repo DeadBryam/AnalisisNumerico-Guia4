@@ -93,6 +93,8 @@ public class FrmMetodoGrafico extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 440, -1, -1));
+
+        jTextField1.setEditable(false);
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 810, 30));
 
         pack();
